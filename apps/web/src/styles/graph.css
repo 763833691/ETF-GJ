@@ -1,0 +1,158 @@
+.semantic-graph-shell {
+  position: relative;
+  height: 720px;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.semantic-graph-shell:fullscreen {
+  height: 100vh;
+  padding: 22px;
+  background: #f4f8fd;
+}
+
+.semantic-flow-wrap {
+  position: relative;
+  flex: 1;
+  min-height: 540px;
+  overflow: hidden;
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 48% 42%, rgba(74, 139, 204, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(249, 252, 255, 0.9), rgba(239, 245, 252, 0.72));
+}
+
+.semantic-react-flow {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+.semantic-react-flow .react-flow__background {
+  pointer-events: none;
+}
+
+.semantic-react-flow .react-flow__pane {
+  cursor: grab;
+}
+
+.semantic-react-flow .react-flow__node {
+  pointer-events: auto;
+}
+
+.react-flow__attribution {
+  display: none;
+}
+
+.semantic-node {
+  width: 184px;
+  min-height: 132px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(120, 146, 180, 0.24);
+  box-shadow: 0 12px 32px rgba(32, 68, 120, 0.1);
+  backdrop-filter: blur(18px) saturate(1.18);
+  -webkit-backdrop-filter: blur(18px) saturate(1.18);
+  color: var(--color-text-main);
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease, border-color 160ms ease;
+}
+
+.graph-status-row {
+  margin-bottom: 10px;
+}
+
+.semantic-node:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 44px rgba(32, 68, 120, 0.14);
+  border-color: rgba(74, 139, 204, 0.32);
+}
+
+.semantic-node.dimmed {
+  opacity: 0.25;
+}
+
+.semantic-node.highlighted {
+  border-color: rgba(50, 110, 166, 0.58);
+  box-shadow: 0 18px 46px rgba(50, 110, 166, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.75);
+}
+
+.node-user {
+  background: rgba(235, 242, 252, 0.78);
+}
+
+.node-asset {
+  background: rgba(231, 246, 248, 0.78);
+}
+
+.node-metric {
+  background: rgba(238, 245, 255, 0.78);
+}
+
+.node-event {
+  background: rgba(255, 249, 235, 0.78);
+}
+
+.node-risk {
+  background: rgba(255, 244, 235, 0.78);
+}
+
+.node-evidence {
+  background: rgba(250, 247, 239, 0.78);
+}
+
+.node-strategy {
+  background: rgba(242, 240, 250, 0.78);
+}
+
+.semantic-edge-label {
+  padding: 3px 7px;
+  border-radius: 999px;
+  color: #526173;
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(120, 146, 180, 0.18);
+  box-shadow: 0 6px 16px rgba(32, 68, 120, 0.08);
+  white-space: nowrap;
+}
+
+.graph-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.graph-toolbar .ant-btn {
+  color: #526173;
+  border-color: rgba(120, 146, 180, 0.22);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.graph-toolbar .ant-btn.active {
+  color: var(--color-primary-700);
+  border-color: rgba(74, 139, 204, 0.35);
+  background: rgba(231, 240, 251, 0.88);
+}
+
+@media (max-width: 720px) {
+  .semantic-graph-shell {
+    height: 680px;
+    min-height: 600px;
+  }
+
+  .semantic-graph-shell .section-header {
+    display: grid;
+  }
+
+  .graph-toolbar {
+    gap: 6px;
+  }
+
+  .graph-toolbar .ant-btn {
+    padding-inline: 8px;
+  }
+}

@@ -1,0 +1,38 @@
+:root {
+  --color-primary-900: #10233f;
+  --color-primary-800: #18365d;
+  --color-primary-700: #24517e;
+  --color-primary-600: #326ea6;
+  --color-primary-500: #4a8bcc;
+  --color-primary-100: #e7f0fb;
+  --color-cyan-soft: #6bbfc4;
+  --color-mint-soft: #8fcfbd;
+  --color-indigo-soft: #7f92c8;
+  --color-purple-soft: #a99bc8;
+  --color-gold-soft: #c8ae72;
+  --color-orange-soft: #d9a36f;
+  --color-bg: #f6f8fc;
+  --color-surface: rgba(255, 255, 255, 0.72);
+  --color-surface-solid: #ffffff;
+  --color-border: rgba(120, 146, 180, 0.22);
+  --color-border-strong: rgba(80, 110, 150, 0.32);
+  --color-text-main: #142033;
+  --color-text-secondary: #526173;
+  --color-text-tertiary: #7b8794;
+  --color-muted: #a5afbd;
+  --shadow-soft: 0 12px 32px rgba(32, 68, 120, 0.1);
+  --shadow-card: 0 16px 42px rgba(32, 68, 120, 0.12);
+  --shadow-floating: 0 24px 60px rgba(32, 68, 120, 0.16);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+}

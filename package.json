@@ -1,0 +1,20 @@
+{
+  "name": "etf-intelligent-education-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ETF 智能投教平台第一阶段 Demo",
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,cyan \"pnpm --filter api dev\" \"pnpm --filter web dev\"",
+    "build": "pnpm --filter api build && pnpm --filter web build",
+    "typecheck": "pnpm --filter api typecheck && pnpm --filter web typecheck",
+    "start:api": "pnpm --filter api start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@10.33.0"
+}

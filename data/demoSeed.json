@@ -1,0 +1,788 @@
+{
+  "app": {
+    "name": "ETF 智能投教平台",
+    "subtitle": "数据驱动、语义驱动、证据闭环的 ETF 投教辅助与场景推演平台",
+    "dataSource": "demo_seed"
+  },
+  "disclaimer": "本平台内容仅用于投资教育和辅助分析，不构成任何投资建议、收益承诺或交易指令。市场有风险，投资需谨慎。",
+  "defaultProject": {
+    "orgId": "demo_org",
+    "projectId": "demo_project",
+    "userId": "demo_user",
+    "dataSource": "demo_seed"
+  },
+  "dataStatus": {
+    "dataSource": "demo_seed",
+    "etfDataStatus": "demo_ready",
+    "newsDataStatus": "demo_ready",
+    "indexDataStatus": "demo_ready",
+    "riskSignalStatus": "demo_ready",
+    "evidenceStatus": "demo_ready",
+    "providerApiEnabled": false,
+    "modelStatus": "not_configured",
+    "lastUpdatedAt": "2026-06-12T00:00:00.000Z"
+  },
+  "profile": {
+    "id": "profile_demo_001",
+    "objectType": "UserProfile",
+    "investmentGoal": "长期定投 / 学习优先",
+    "monthlyBudget": 1000,
+    "timeHorizon": "3 年",
+    "riskPreference": "medium",
+    "riskLabel": "中等",
+    "experienceLevel": "beginner",
+    "knowledgeLevel": "新手",
+    "themePreferences": ["宽基", "红利", "科技"],
+    "riskFocus": ["波动控制", "最大回撤", "主题拥挤"],
+    "planGoal": "理解型配置，优先学习 ETF 类型、指数暴露与风险结构",
+    "dataSource": "demo_seed"
+  },
+  "semanticGraph": {
+    "nodes": [
+      {
+        "id": "profile_demo_001",
+        "type": "semanticNode",
+        "position": { "x": 40, "y": 150 },
+        "data": {
+          "objectType": "UserProfile",
+          "category": "user",
+          "title": "用户画像",
+          "subtitle": "新手 / 中等风险",
+          "summary": "每月 1000 元、3 年周期、学习优先的 ETF 投教画像。",
+          "status": "active",
+          "confidence": 0.86,
+          "dataSource": "demo_seed",
+          "sourceSystem": "etf_app",
+          "sourceRef": "demo_profile_001",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "budget": "1000 元/月", "experience": "beginner" }
+        }
+      },
+      {
+        "id": "goal_demo_001",
+        "type": "semanticNode",
+        "position": { "x": 250, "y": 60 },
+        "data": {
+          "objectType": "InvestmentGoal",
+          "category": "user",
+          "title": "投资目标",
+          "subtitle": "定投学习型",
+          "summary": "以学习 ETF 风险与配置逻辑为主，保持简单、可解释。",
+          "status": "active",
+          "confidence": 0.88,
+          "dataSource": "demo_seed",
+          "sourceSystem": "etf_app",
+          "sourceRef": "demo_goal_001",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "horizon": "3 年", "method": "定投" }
+        }
+      },
+      {
+        "id": "risk_profile_demo_001",
+        "type": "semanticNode",
+        "position": { "x": 250, "y": 260 },
+        "data": {
+          "objectType": "RiskProfile",
+          "category": "user",
+          "title": "风险画像",
+          "subtitle": "中等风险偏好",
+          "summary": "关注波动、回撤和主题拥挤风险。",
+          "status": "active",
+          "riskLevel": "medium",
+          "confidence": 0.82,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_risk_profile_001",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "maxVolatilityTolerance": "15%-20%" }
+        }
+      },
+      {
+        "id": "etf_broad_001",
+        "type": "semanticNode",
+        "position": { "x": 510, "y": 40 },
+        "data": {
+          "objectType": "ETFProduct",
+          "category": "asset",
+          "title": "宽基 ETF",
+          "subtitle": "示例代码 510300",
+          "summary": "用于理解宽基指数暴露与市场整体波动。",
+          "status": "reviewed",
+          "confidence": 0.8,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_etf_broad",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "fundType": "宽基", "fee": "0.15%", "scale": "演示规模" }
+        }
+      },
+      {
+        "id": "etf_dividend_001",
+        "type": "semanticNode",
+        "position": { "x": 520, "y": 160 },
+        "data": {
+          "objectType": "ETFProduct",
+          "category": "asset",
+          "title": "红利 ETF",
+          "subtitle": "示例代码 510880",
+          "summary": "用于理解红利风格、价值风格与股息特征。",
+          "status": "reviewed",
+          "confidence": 0.78,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_etf_dividend",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "fundType": "红利", "fee": "0.20%", "style": "价值 / 红利" }
+        }
+      },
+      {
+        "id": "etf_tech_001",
+        "type": "semanticNode",
+        "position": { "x": 520, "y": 280 },
+        "data": {
+          "objectType": "ETFProduct",
+          "category": "asset",
+          "title": "科技 ETF",
+          "subtitle": "示例代码 515000",
+          "summary": "用于理解科技主题成长暴露与波动风险。",
+          "status": "warning",
+          "riskLevel": "medium",
+          "confidence": 0.76,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_etf_tech",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "fundType": "主题", "fee": "0.50%", "style": "成长 / 科技" }
+        }
+      },
+      {
+        "id": "etf_bond_001",
+        "type": "semanticNode",
+        "position": { "x": 520, "y": 400 },
+        "data": {
+          "objectType": "ETFProduct",
+          "category": "asset",
+          "title": "债券 ETF",
+          "subtitle": "示例代码 511010",
+          "summary": "用于理解利率变化、久期与低波动资产特征。",
+          "status": "reviewed",
+          "riskLevel": "low",
+          "confidence": 0.74,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_etf_bond",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "fundType": "债券", "style": "低波动" }
+        }
+      },
+      {
+        "id": "index_csi300",
+        "type": "semanticNode",
+        "position": { "x": 760, "y": 30 },
+        "data": {
+          "objectType": "Index",
+          "category": "asset",
+          "title": "沪深 300 指数",
+          "subtitle": "宽基指数",
+          "summary": "反映 A 股大中型公司整体表现的演示指数对象。",
+          "status": "reviewed",
+          "confidence": 0.79,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_index_csi300",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "indexType": "broad_market" }
+        }
+      },
+      {
+        "id": "index_dividend",
+        "type": "semanticNode",
+        "position": { "x": 760, "y": 150 },
+        "data": {
+          "objectType": "Index",
+          "category": "asset",
+          "title": "中证红利指数",
+          "subtitle": "红利风格",
+          "summary": "演示红利风格因子和股息特征的指数对象。",
+          "status": "reviewed",
+          "confidence": 0.78,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_index_dividend",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "style": "dividend" }
+        }
+      },
+      {
+        "id": "index_tech",
+        "type": "semanticNode",
+        "position": { "x": 760, "y": 270 },
+        "data": {
+          "objectType": "Index",
+          "category": "asset",
+          "title": "科技主题指数",
+          "subtitle": "成长风格",
+          "summary": "演示科技主题暴露、估值敏感性与高波动特征。",
+          "status": "warning",
+          "riskLevel": "medium",
+          "confidence": 0.75,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_index_tech",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "style": "growth" }
+        }
+      },
+      {
+        "id": "sector_finance",
+        "type": "semanticNode",
+        "position": { "x": 1000, "y": 35 },
+        "data": {
+          "objectType": "Sector",
+          "category": "asset",
+          "title": "金融行业",
+          "subtitle": "宽基权重行业",
+          "summary": "演示宽基指数中的行业暴露。",
+          "status": "active",
+          "confidence": 0.72,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_sector_finance",
+          "updatedAt": "2026-06-12T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "sector_tech",
+        "type": "semanticNode",
+        "position": { "x": 1000, "y": 210 },
+        "data": {
+          "objectType": "Sector",
+          "category": "asset",
+          "title": "科技行业",
+          "subtitle": "主题暴露",
+          "summary": "科技主题 ETF 的主要行业暴露对象。",
+          "status": "warning",
+          "riskLevel": "medium",
+          "confidence": 0.73,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_sector_tech",
+          "updatedAt": "2026-06-12T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "theme_dividend",
+        "type": "semanticNode",
+        "position": { "x": 1000, "y": 360 },
+        "data": {
+          "objectType": "Theme",
+          "category": "asset",
+          "title": "红利风格",
+          "subtitle": "低估值 / 股息",
+          "summary": "用于投教解释红利风格的稳定性和风格轮动风险。",
+          "status": "active",
+          "confidence": 0.76,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_theme_dividend",
+          "updatedAt": "2026-06-12T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "metric_volatility",
+        "type": "semanticNode",
+        "position": { "x": 1240, "y": 120 },
+        "data": {
+          "objectType": "VolatilityMetric",
+          "category": "metric",
+          "title": "波动指标",
+          "subtitle": "主题波动较高",
+          "summary": "用于解释不同 ETF 类型在场景变化下的波动敏感性。",
+          "status": "warning",
+          "riskLevel": "medium",
+          "confidence": 0.7,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_metric_volatility",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "metricValue": "演示分位 68%" }
+        }
+      },
+      {
+        "id": "metric_liquidity",
+        "type": "semanticNode",
+        "position": { "x": 1240, "y": 280 },
+        "data": {
+          "objectType": "LiquidityMetric",
+          "category": "metric",
+          "title": "流动性指标",
+          "subtitle": "成交活跃度演示",
+          "summary": "用于解释成交活跃度下降对 ETF 理解和风险识别的影响。",
+          "status": "active",
+          "riskLevel": "medium",
+          "confidence": 0.69,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_metric_liquidity",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "metricValue": "演示中等" }
+        }
+      },
+      {
+        "id": "news_tech_volatility",
+        "type": "semanticNode",
+        "position": { "x": 1470, "y": 60 },
+        "data": {
+          "objectType": "NewsEvent",
+          "category": "event",
+          "title": "科技板块波动加大",
+          "subtitle": "演示新闻事件",
+          "summary": "演示新闻：科技主题波动加大，可能提高相关主题风险解释权重。",
+          "status": "warning",
+          "riskLevel": "medium",
+          "confidence": 0.66,
+          "dataSource": "demo_seed",
+          "sourceSystem": "knowledge_hub",
+          "sourceRef": "demo_news_tech_volatility",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "sentiment": "mixed", "eventType": "industry_event" }
+        }
+      },
+      {
+        "id": "news_dividend_style",
+        "type": "semanticNode",
+        "position": { "x": 1470, "y": 200 },
+        "data": {
+          "objectType": "NewsEvent",
+          "category": "event",
+          "title": "红利风格关注度上升",
+          "subtitle": "演示新闻事件",
+          "summary": "演示新闻：红利风格在市场震荡环境下受到更多关注。",
+          "status": "reviewed",
+          "confidence": 0.64,
+          "dataSource": "demo_seed",
+          "sourceSystem": "knowledge_hub",
+          "sourceRef": "demo_news_dividend_style",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "sentiment": "neutral", "eventType": "market_event" }
+        }
+      },
+      {
+        "id": "news_liquidity_down",
+        "type": "semanticNode",
+        "position": { "x": 1470, "y": 340 },
+        "data": {
+          "objectType": "MarketEvent",
+          "category": "event",
+          "title": "市场成交活跃度下降",
+          "subtitle": "演示市场事件",
+          "summary": "演示事件：成交活跃度下降可能增强流动性风险提示。",
+          "status": "warning",
+          "riskLevel": "medium",
+          "confidence": 0.62,
+          "dataSource": "demo_seed",
+          "sourceSystem": "knowledge_hub",
+          "sourceRef": "demo_news_liquidity_down",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "riskImpact": "risk_up" }
+        }
+      },
+      {
+        "id": "risk_volatility",
+        "type": "semanticNode",
+        "position": { "x": 1700, "y": 95 },
+        "data": {
+          "objectType": "RiskSignal",
+          "category": "risk",
+          "title": "主题波动风险",
+          "subtitle": "中等偏高",
+          "summary": "科技主题受估值和情绪变化影响，波动解释权重上升。",
+          "status": "warning",
+          "riskLevel": "high",
+          "confidence": 0.72,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_risk_volatility",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "signalType": "volatility" }
+        }
+      },
+      {
+        "id": "risk_liquidity",
+        "type": "semanticNode",
+        "position": { "x": 1700, "y": 245 },
+        "data": {
+          "objectType": "RiskSignal",
+          "category": "risk",
+          "title": "流动性风险",
+          "subtitle": "中等",
+          "summary": "成交活跃度下降时，需要理解交易活跃度和价格偏离风险。",
+          "status": "warning",
+          "riskLevel": "medium",
+          "confidence": 0.68,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_risk_liquidity",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "signalType": "liquidity" }
+        }
+      },
+      {
+        "id": "risk_duration",
+        "type": "semanticNode",
+        "position": { "x": 1700, "y": 395 },
+        "data": {
+          "objectType": "RiskSignal",
+          "category": "risk",
+          "title": "周期错配风险",
+          "subtitle": "场景敏感",
+          "summary": "投资周期缩短时，长期学习型方案的稳定性需要重新评估。",
+          "status": "warning",
+          "riskLevel": "medium",
+          "confidence": 0.7,
+          "dataSource": "demo_seed",
+          "sourceSystem": "semantic_world",
+          "sourceRef": "demo_risk_duration",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "signalType": "duration_mismatch" }
+        }
+      },
+      {
+        "id": "plan_stable_learning",
+        "type": "semanticNode",
+        "position": { "x": 780, "y": 550 },
+        "data": {
+          "objectType": "StrategyPlan",
+          "category": "strategy",
+          "title": "稳健学习型方案",
+          "subtitle": "目标匹配度 87%",
+          "summary": "以宽基和红利 ETF 类型为主要学习对象，理解指数暴露和风险分散逻辑。",
+          "status": "active",
+          "confidence": 0.87,
+          "dataSource": "demo_seed",
+          "sourceSystem": "my_blueprint",
+          "sourceRef": "demo_plan_stable_learning",
+          "updatedAt": "2026-06-12T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "plan_growth_watch",
+        "type": "semanticNode",
+        "position": { "x": 1040, "y": 550 },
+        "data": {
+          "objectType": "StrategyPlan",
+          "category": "strategy",
+          "title": "成长关注型方案",
+          "subtitle": "学习适配度 76%",
+          "summary": "用于理解科技主题 ETF 的成长暴露、波动特征和风险边界。",
+          "status": "active",
+          "riskLevel": "medium",
+          "confidence": 0.76,
+          "dataSource": "demo_seed",
+          "sourceSystem": "my_blueprint",
+          "sourceRef": "demo_plan_growth_watch",
+          "updatedAt": "2026-06-12T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "plan_low_volatility",
+        "type": "semanticNode",
+        "position": { "x": 1300, "y": 550 },
+        "data": {
+          "objectType": "StrategyPlan",
+          "category": "strategy",
+          "title": "低波动定投型方案",
+          "subtitle": "风险适配度 82%",
+          "summary": "用于理解债券 ETF、宽基 ETF 与低波动学习路径。",
+          "status": "active",
+          "confidence": 0.82,
+          "dataSource": "demo_seed",
+          "sourceSystem": "my_blueprint",
+          "sourceRef": "demo_plan_low_volatility",
+          "updatedAt": "2026-06-12T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "evidence_basic_data",
+        "type": "semanticNode",
+        "position": { "x": 1880, "y": 40 },
+        "data": {
+          "objectType": "EvidenceObject",
+          "category": "evidence",
+          "title": "ETF 基础数据证据",
+          "subtitle": "demo_only",
+          "summary": "ETF 类型、跟踪指数、费率与基础字段的演示证据对象。",
+          "status": "reviewed",
+          "confidence": 0.78,
+          "dataSource": "demo_seed",
+          "sourceSystem": "knowledge_hub",
+          "sourceRef": "ev_demo_001",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "reviewStatus": "demo_only" }
+        }
+      },
+      {
+        "id": "evidence_rule_risk",
+        "type": "semanticNode",
+        "position": { "x": 1880, "y": 205 },
+        "data": {
+          "objectType": "EvidenceObject",
+          "category": "evidence",
+          "title": "风险提示规则证据",
+          "subtitle": "demo_only",
+          "summary": "用于说明波动、流动性和周期错配风险的投教规则证据。",
+          "status": "reviewed",
+          "confidence": 0.8,
+          "dataSource": "demo_seed",
+          "sourceSystem": "knowledge_hub",
+          "sourceRef": "ev_demo_005",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "reviewStatus": "demo_only" }
+        }
+      },
+      {
+        "id": "source_demo_seed",
+        "type": "semanticNode",
+        "position": { "x": 1880, "y": 375 },
+        "data": {
+          "objectType": "DataSource",
+          "category": "evidence",
+          "title": "demo_seed 数据源",
+          "subtitle": "演示种子数据",
+          "summary": "当前所有画布、方案、事件和证据对象均来自 demo_seed。",
+          "status": "active",
+          "confidence": 1,
+          "dataSource": "demo_seed",
+          "sourceSystem": "etf_app",
+          "sourceRef": "data/demoSeed.json",
+          "updatedAt": "2026-06-12T00:00:00.000Z",
+          "metadata": { "providerApiEnabled": false }
+        }
+      }
+    ],
+    "edges": [
+      { "id": "edge_profile_goal", "source": "profile_demo_001", "target": "goal_demo_001", "label": "拥有目标", "relationType": "has_goal", "animated": true, "data": { "dataSource": "demo_seed", "confidence": 0.9, "explanation": "用户画像包含定投学习目标。" } },
+      { "id": "edge_profile_risk", "source": "profile_demo_001", "target": "risk_profile_demo_001", "label": "风险画像", "relationType": "has_risk_profile", "animated": true, "data": { "dataSource": "demo_seed", "confidence": 0.86, "explanation": "用户画像包含中等风险偏好。" } },
+      { "id": "edge_goal_broad", "source": "goal_demo_001", "target": "etf_broad_001", "label": "适合理解", "relationType": "matches", "animated": true, "data": { "dataSource": "demo_seed", "confidence": 0.82 } },
+      { "id": "edge_goal_dividend", "source": "goal_demo_001", "target": "etf_dividend_001", "label": "适合理解", "relationType": "matches", "animated": true, "data": { "dataSource": "demo_seed", "confidence": 0.78 } },
+      { "id": "edge_goal_tech", "source": "goal_demo_001", "target": "etf_tech_001", "label": "关注主题", "relationType": "matches", "data": { "dataSource": "demo_seed", "confidence": 0.68 } },
+      { "id": "edge_broad_index", "source": "etf_broad_001", "target": "index_csi300", "label": "跟踪指数", "relationType": "tracks", "data": { "dataSource": "demo_seed", "confidence": 0.8 } },
+      { "id": "edge_dividend_index", "source": "etf_dividend_001", "target": "index_dividend", "label": "跟踪指数", "relationType": "tracks", "data": { "dataSource": "demo_seed", "confidence": 0.8 } },
+      { "id": "edge_tech_index", "source": "etf_tech_001", "target": "index_tech", "label": "跟踪指数", "relationType": "tracks", "data": { "dataSource": "demo_seed", "confidence": 0.78 } },
+      { "id": "edge_csi_finance", "source": "index_csi300", "target": "sector_finance", "label": "暴露行业", "relationType": "exposed_to", "data": { "dataSource": "demo_seed", "confidence": 0.72 } },
+      { "id": "edge_tech_sector", "source": "index_tech", "target": "sector_tech", "label": "暴露行业", "relationType": "exposed_to", "data": { "dataSource": "demo_seed", "confidence": 0.75 } },
+      { "id": "edge_dividend_theme", "source": "index_dividend", "target": "theme_dividend", "label": "属于主题", "relationType": "belongs_to", "data": { "dataSource": "demo_seed", "confidence": 0.76 } },
+      { "id": "edge_tech_metric_vol", "source": "etf_tech_001", "target": "metric_volatility", "label": "包含指标", "relationType": "has_metric", "data": { "dataSource": "demo_seed", "confidence": 0.7 } },
+      { "id": "edge_broad_metric_liq", "source": "etf_broad_001", "target": "metric_liquidity", "label": "包含指标", "relationType": "has_metric", "data": { "dataSource": "demo_seed", "confidence": 0.68 } },
+      { "id": "edge_news_tech_sector", "source": "news_tech_volatility", "target": "sector_tech", "label": "影响行业", "relationType": "affects", "animated": true, "data": { "dataSource": "demo_seed", "confidence": 0.66 } },
+      { "id": "edge_news_dividend_theme", "source": "news_dividend_style", "target": "theme_dividend", "label": "影响主题", "relationType": "affects", "data": { "dataSource": "demo_seed", "confidence": 0.64 } },
+      { "id": "edge_news_liq_metric", "source": "news_liquidity_down", "target": "metric_liquidity", "label": "影响指标", "relationType": "affects", "data": { "dataSource": "demo_seed", "confidence": 0.62 } },
+      { "id": "edge_metric_vol_risk", "source": "metric_volatility", "target": "risk_volatility", "label": "提升风险", "relationType": "increases_risk", "animated": true, "data": { "dataSource": "demo_seed", "confidence": 0.72 } },
+      { "id": "edge_metric_liq_risk", "source": "metric_liquidity", "target": "risk_liquidity", "label": "提升风险", "relationType": "increases_risk", "data": { "dataSource": "demo_seed", "confidence": 0.68 } },
+      { "id": "edge_profile_duration", "source": "risk_profile_demo_001", "target": "risk_duration", "label": "约束周期", "relationType": "has_risk", "data": { "dataSource": "demo_seed", "confidence": 0.7 } },
+      { "id": "edge_plan_stable_goal", "source": "plan_stable_learning", "target": "goal_demo_001", "label": "匹配目标", "relationType": "matches", "animated": true, "data": { "dataSource": "demo_seed", "confidence": 0.87 } },
+      { "id": "edge_plan_stable_broad", "source": "plan_stable_learning", "target": "etf_broad_001", "label": "包含产品", "relationType": "contains", "animated": true, "data": { "dataSource": "demo_seed", "confidence": 0.82 } },
+      { "id": "edge_plan_stable_dividend", "source": "plan_stable_learning", "target": "etf_dividend_001", "label": "包含产品", "relationType": "contains", "data": { "dataSource": "demo_seed", "confidence": 0.78 } },
+      { "id": "edge_plan_growth_tech", "source": "plan_growth_watch", "target": "etf_tech_001", "label": "包含产品", "relationType": "contains", "data": { "dataSource": "demo_seed", "confidence": 0.76 } },
+      { "id": "edge_plan_low_bond", "source": "plan_low_volatility", "target": "etf_bond_001", "label": "包含产品", "relationType": "contains", "data": { "dataSource": "demo_seed", "confidence": 0.74 } },
+      { "id": "edge_plan_stable_ev1", "source": "plan_stable_learning", "target": "evidence_basic_data", "label": "证据支持", "relationType": "supported_by", "animated": true, "data": { "dataSource": "demo_seed", "confidence": 0.8 } },
+      { "id": "edge_plan_stable_ev2", "source": "plan_stable_learning", "target": "evidence_rule_risk", "label": "证据支持", "relationType": "supported_by", "animated": true, "data": { "dataSource": "demo_seed", "confidence": 0.8 } },
+      { "id": "edge_plan_growth_risk", "source": "plan_growth_watch", "target": "risk_volatility", "label": "风险解释", "relationType": "has_risk", "data": { "dataSource": "demo_seed", "confidence": 0.72 } },
+      { "id": "edge_plan_low_risk", "source": "plan_low_volatility", "target": "risk_duration", "label": "风险解释", "relationType": "has_risk", "data": { "dataSource": "demo_seed", "confidence": 0.7 } },
+      { "id": "edge_evidence_source_1", "source": "evidence_basic_data", "target": "source_demo_seed", "label": "来源于", "relationType": "derived_from", "data": { "dataSource": "demo_seed", "confidence": 1 } },
+      { "id": "edge_evidence_source_2", "source": "evidence_rule_risk", "target": "source_demo_seed", "label": "来源于", "relationType": "derived_from", "data": { "dataSource": "demo_seed", "confidence": 1 } },
+      { "id": "edge_risk_ev", "source": "risk_volatility", "target": "evidence_rule_risk", "label": "证据支持", "relationType": "supported_by", "data": { "dataSource": "demo_seed", "confidence": 0.8 } },
+      { "id": "edge_liq_ev", "source": "risk_liquidity", "target": "evidence_rule_risk", "label": "证据支持", "relationType": "supported_by", "data": { "dataSource": "demo_seed", "confidence": 0.78 } }
+    ]
+  },
+  "newsEvents": [
+    { "id": "news_001", "eventType": "news", "title": "科技板块波动加大", "summary": "演示新闻事件，用于说明科技主题 ETF 波动风险的语义影响。", "relatedObjects": ["科技 ETF", "科技行业"], "riskLevel": "medium", "sentiment": "mixed", "occurredAt": "2026-06-12T00:00:00.000Z", "sourceStatus": "demo_seed", "dataSource": "demo_seed" },
+    { "id": "news_002", "eventType": "market", "title": "红利风格关注度上升", "summary": "演示新闻事件，用于解释红利风格在震荡场景中的投教价值。", "relatedObjects": ["红利 ETF", "红利风格"], "riskLevel": "low", "sentiment": "neutral", "occurredAt": "2026-06-12T00:00:00.000Z", "sourceStatus": "demo_seed", "dataSource": "demo_seed" },
+    { "id": "news_003", "eventType": "market", "title": "市场成交活跃度下降", "summary": "演示市场事件，用于说明流动性风险信号的生成。", "relatedObjects": ["宽基 ETF", "流动性指标"], "riskLevel": "medium", "sentiment": "neutral", "occurredAt": "2026-06-12T00:00:00.000Z", "sourceStatus": "demo_seed", "dataSource": "demo_seed" },
+    { "id": "news_004", "eventType": "policy", "title": "宏观利率预期变化", "summary": "演示政策和宏观事件，用于解释债券 ETF 的利率敏感性。", "relatedObjects": ["债券 ETF"], "riskLevel": "medium", "sentiment": "mixed", "occurredAt": "2026-06-12T00:00:00.000Z", "sourceStatus": "demo_seed", "dataSource": "demo_seed" },
+    { "id": "news_005", "eventType": "news", "title": "消费板块修复预期", "summary": "演示行业事件，用于说明行业主题对 ETF 解释路径的影响。", "relatedObjects": ["消费主题"], "riskLevel": "low", "sentiment": "neutral", "occurredAt": "2026-06-12T00:00:00.000Z", "sourceStatus": "demo_seed", "dataSource": "demo_seed" },
+    { "id": "news_006", "eventType": "announcement", "title": "指数成分调整提示", "summary": "演示公告事件，用于说明指数调整与跟踪误差风险。", "relatedObjects": ["沪深 300 指数"], "riskLevel": "low", "sentiment": "neutral", "occurredAt": "2026-06-12T00:00:00.000Z", "sourceStatus": "demo_seed", "dataSource": "demo_seed" },
+    { "id": "news_007", "eventType": "market", "title": "债券市场波动变化", "summary": "演示市场事件，用于解释债券 ETF 与利率风险关系。", "relatedObjects": ["债券 ETF"], "riskLevel": "medium", "sentiment": "mixed", "occurredAt": "2026-06-12T00:00:00.000Z", "sourceStatus": "demo_seed", "dataSource": "demo_seed" },
+    { "id": "news_008", "eventType": "risk", "title": "基金公司发布风险提示", "summary": "演示风险提示事件，用于说明证据链和风险提示规则。", "relatedObjects": ["风险提示规则"], "riskLevel": "medium", "sentiment": "neutral", "occurredAt": "2026-06-12T00:00:00.000Z", "sourceStatus": "demo_seed", "dataSource": "demo_seed" }
+  ],
+  "riskSignals": [
+    { "id": "risk_signal_001", "title": "科技主题波动风险上升", "level": "medium_high", "affectedObjects": ["科技 ETF", "科技行业"], "trigger": "科技板块波动加大演示事件", "explanation": "科技主题 ETF 对市场情绪和估值变化更敏感。", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "risk_signal_002", "title": "流动性风险中等", "level": "medium", "affectedObjects": ["宽基 ETF", "流动性指标"], "trigger": "成交活跃度下降演示事件", "explanation": "流动性变化可能影响交易活跃度理解。", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "risk_signal_003", "title": "投资周期缩短导致匹配度下降", "level": "medium", "affectedObjects": ["稳健学习型方案"], "trigger": "用户条件变化场景", "explanation": "长期学习路径在周期缩短时需要重新评估稳定性。", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "risk_signal_004", "title": "主题集中风险提示", "level": "medium", "affectedObjects": ["科技 ETF"], "trigger": "主题关注度集中", "explanation": "主题 ETF 的行业集中度可能高于宽基产品。", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "risk_signal_005", "title": "利率敏感性提示", "level": "low_medium", "affectedObjects": ["债券 ETF"], "trigger": "宏观利率预期变化", "explanation": "债券 ETF 的价格表现可能受利率预期变化影响。", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" }
+  ],
+  "evidenceObjects": [
+    { "id": "ev_001", "title": "ETF 基础信息证据", "type": "ETF 基础数据", "source": "demo_seed", "summary": "ETF 类型、跟踪指数、费率等基础字段演示。", "relatedObjects": ["宽基 ETF", "红利 ETF", "科技 ETF"], "usedForPlan": true, "reviewStatus": "demo_only", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "ev_002", "title": "指数说明证据", "type": "指数说明", "source": "demo_seed", "summary": "宽基、红利、科技主题指数的演示说明。", "relatedObjects": ["沪深 300 指数", "中证红利指数"], "usedForPlan": true, "reviewStatus": "demo_only", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "ev_003", "title": "行业分布证据", "type": "行业分布", "source": "demo_seed", "summary": "指数行业暴露与主题集中度演示字段。", "relatedObjects": ["金融行业", "科技行业"], "usedForPlan": true, "reviewStatus": "demo_only", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "ev_004", "title": "投教规则证据", "type": "投教规则", "source": "demo_seed", "summary": "新手 ETF 学习路径和风险识别规则。", "relatedObjects": ["用户画像"], "usedForPlan": true, "reviewStatus": "demo_only", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "ev_005", "title": "风险提示规则证据", "type": "风险提示规则", "source": "demo_seed", "summary": "波动、流动性、周期错配等风险解释规则。", "relatedObjects": ["风险画像", "风险信号"], "usedForPlan": true, "reviewStatus": "demo_only", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "ev_006", "title": "新闻事件证据：科技波动", "type": "新闻事件", "source": "demo_seed", "summary": "科技板块波动加大的演示新闻证据。", "relatedObjects": ["科技 ETF"], "usedForPlan": true, "reviewStatus": "demo_only", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "ev_007", "title": "新闻事件证据：红利风格", "type": "新闻事件", "source": "demo_seed", "summary": "红利风格关注度上升的演示新闻证据。", "relatedObjects": ["红利 ETF"], "usedForPlan": true, "reviewStatus": "demo_only", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "ev_008", "title": "场景推演依据", "type": "场景规则", "source": "demo_seed", "summary": "市场震荡、周期缩短等场景规则依据。", "relatedObjects": ["场景推演"], "usedForPlan": true, "reviewStatus": "demo_only", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "ev_009", "title": "方案生成依据", "type": "方案证据", "source": "demo_seed", "summary": "方案匹配度、风险适配度、学习适配度的演示依据。", "relatedObjects": ["稳健学习型方案"], "usedForPlan": true, "reviewStatus": "demo_only", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "ev_010", "title": "数据源状态证据", "type": "数据源", "source": "demo_seed", "summary": "当前演示数据源状态和真实接口预留位。", "relatedObjects": ["demo_seed 数据源"], "usedForPlan": false, "reviewStatus": "demo_only", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "ev_011", "title": "模型状态证据", "type": "系统状态", "source": "demo_seed", "summary": "模型未配置状态说明，避免伪造真实模型结果。", "relatedObjects": ["系统状态"], "usedForPlan": false, "reviewStatus": "demo_only", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" },
+    { "id": "ev_012", "title": "合规边界证据", "type": "投教合规", "source": "demo_seed", "summary": "投教辅助、不构成投资建议或交易指令的统一边界。", "relatedObjects": ["免责声明"], "usedForPlan": true, "reviewStatus": "demo_only", "updatedAt": "2026-06-12T00:00:00.000Z", "dataSource": "demo_seed" }
+  ],
+  "strategyPlans": [
+    {
+      "id": "plan_demo_001",
+      "title": "稳健学习型方案",
+      "matchScore": 87,
+      "scoreLabel": "目标匹配度",
+      "suitableFor": "风险偏好中等、希望先理解 ETF 类型和风险结构的新手用户。",
+      "logic": "以宽基 ETF 类型作为学习入口，结合红利风格理解指数暴露、行业分散和风格差异。",
+      "etfTypes": ["宽基 ETF", "红利 ETF", "债券 ETF"],
+      "risks": ["市场波动风险", "风格轮动风险", "信息滞后风险"],
+      "evidenceIds": ["ev_001", "ev_002", "ev_004", "ev_005"],
+      "dataSource": "demo_seed"
+    },
+    {
+      "id": "plan_demo_002",
+      "title": "成长关注型方案",
+      "matchScore": 76,
+      "scoreLabel": "学习适配度",
+      "suitableFor": "希望理解科技主题、成长风格和波动来源的学习型用户。",
+      "logic": "将科技 ETF 作为主题风险教育样例，重点观察行业集中、估值敏感和新闻事件影响。",
+      "etfTypes": ["科技 ETF", "宽基 ETF"],
+      "risks": ["主题集中风险", "波动风险", "新闻事件影响"],
+      "evidenceIds": ["ev_003", "ev_006", "ev_005"],
+      "dataSource": "demo_seed"
+    },
+    {
+      "id": "plan_demo_003",
+      "title": "低波动定投型方案",
+      "matchScore": 82,
+      "scoreLabel": "风险适配度",
+      "suitableFor": "希望降低理解难度、先学习稳定资产和长期定投逻辑的用户。",
+      "logic": "通过宽基和债券 ETF 类型解释波动、久期、流动性和投资周期之间的关系。",
+      "etfTypes": ["宽基 ETF", "债券 ETF", "货币 ETF"],
+      "risks": ["利率敏感风险", "流动性风险", "周期错配风险"],
+      "evidenceIds": ["ev_001", "ev_004", "ev_008", "ev_012"],
+      "dataSource": "demo_seed"
+    }
+  ],
+  "scenarios": [
+    {
+      "scenarioType": "market_volatility",
+      "title": "市场震荡",
+      "summary": "市场震荡场景下，宽基和主题 ETF 的波动解释权重上升。",
+      "affectedObjects": ["宽基 ETF", "科技 ETF", "波动指标"],
+      "affectedPath": ["市场事件", "波动指标", "主题波动风险", "投教方案"],
+      "riskChanges": [{ "name": "波动风险", "before": 42, "after": 68 }, { "name": "流动性风险", "before": 38, "after": 52 }, { "name": "周期错配", "before": 35, "after": 48 }],
+      "planImpact": "稳健学习型方案仍适合作为投教样例，但需要突出波动和回撤解释。",
+      "reEvaluateReason": "用户应重新理解自身风险承受能力与市场波动之间的关系。",
+      "highlightNodeIds": ["news_tech_volatility", "metric_volatility", "risk_volatility", "plan_stable_learning"],
+      "highlightEdgeIds": ["edge_news_tech_sector", "edge_metric_vol_risk", "edge_plan_growth_risk"],
+      "evidenceIds": ["ev_005", "ev_008"],
+      "dataSource": "demo_seed"
+    },
+    {
+      "scenarioType": "tech_drawdown",
+      "title": "科技板块回撤",
+      "summary": "科技主题 ETF 的波动风险权重上升，主题学习路径需要更强调风险边界。",
+      "affectedObjects": ["科技 ETF", "科技行业", "主题波动风险"],
+      "affectedPath": ["科技新闻事件", "科技行业", "科技 ETF", "主题波动风险", "成长关注型方案"],
+      "riskChanges": [{ "name": "波动风险", "before": 48, "after": 76 }, { "name": "主题集中", "before": 52, "after": 72 }, { "name": "信息滞后", "before": 32, "after": 50 }],
+      "planImpact": "成长关注型方案的学习适配度下降，风险解释权重上升。",
+      "reEvaluateReason": "用户需要重新评估主题类 ETF 对自身风险偏好的适配性。",
+      "highlightNodeIds": ["news_tech_volatility", "sector_tech", "etf_tech_001", "risk_volatility", "plan_growth_watch"],
+      "highlightEdgeIds": ["edge_news_tech_sector", "edge_tech_sector", "edge_metric_vol_risk", "edge_plan_growth_risk"],
+      "evidenceIds": ["ev_006", "ev_005"],
+      "dataSource": "demo_seed"
+    },
+    {
+      "scenarioType": "dividend_style_strengthen",
+      "title": "红利风格走强",
+      "summary": "红利风格关注度提升，适合用于学习风格轮动与防御属性。",
+      "affectedObjects": ["红利 ETF", "红利风格", "中证红利指数"],
+      "affectedPath": ["红利新闻事件", "红利风格", "红利 ETF", "稳健学习型方案"],
+      "riskChanges": [{ "name": "风格轮动", "before": 44, "after": 58 }, { "name": "行业集中", "before": 36, "after": 45 }, { "name": "波动风险", "before": 40, "after": 39 }],
+      "planImpact": "稳健学习型方案可增加红利风格解释，但仍需说明风格轮动风险。",
+      "reEvaluateReason": "红利风格并不代表风险消失，仍需要结合行业和估值结构理解。",
+      "highlightNodeIds": ["news_dividend_style", "theme_dividend", "etf_dividend_001", "plan_stable_learning"],
+      "highlightEdgeIds": ["edge_news_dividend_theme", "edge_dividend_theme", "edge_plan_stable_dividend"],
+      "evidenceIds": ["ev_007", "ev_004"],
+      "dataSource": "demo_seed"
+    },
+    {
+      "scenarioType": "horizon_shortened",
+      "title": "投资周期缩短",
+      "summary": "投资周期缩短时，长期学习路径的稳定性解释需要调整。",
+      "affectedObjects": ["投资目标", "周期错配风险", "稳健学习型方案"],
+      "affectedPath": ["投资目标", "风险画像", "周期错配风险", "投教方案"],
+      "riskChanges": [{ "name": "周期错配", "before": 35, "after": 72 }, { "name": "波动风险", "before": 42, "after": 56 }, { "name": "学习稳定性", "before": 78, "after": 54 }],
+      "planImpact": "长期定投学习路径需要重新解释，不宜用短周期理解长期资产波动。",
+      "reEvaluateReason": "用户应区分学习周期、观察周期和真实投资周期。",
+      "highlightNodeIds": ["goal_demo_001", "risk_duration", "plan_stable_learning"],
+      "highlightEdgeIds": ["edge_profile_duration", "edge_plan_low_risk"],
+      "evidenceIds": ["ev_008", "ev_012"],
+      "dataSource": "demo_seed"
+    },
+    {
+      "scenarioType": "risk_preference_down",
+      "title": "风险偏好下降",
+      "summary": "风险偏好下降后，主题 ETF 的解释权重降低，低波动学习路径权重上升。",
+      "affectedObjects": ["风险画像", "科技 ETF", "低波动定投型方案"],
+      "affectedPath": ["风险画像", "科技 ETF", "主题波动风险", "低波动方案"],
+      "riskChanges": [{ "name": "风险适配", "before": 66, "after": 48 }, { "name": "低波动偏好", "before": 44, "after": 74 }, { "name": "主题风险", "before": 58, "after": 70 }],
+      "planImpact": "低波动定投型方案更适合作为投教解释样例。",
+      "reEvaluateReason": "用户应重新评估自己对主题波动的接受程度。",
+      "highlightNodeIds": ["risk_profile_demo_001", "risk_volatility", "plan_low_volatility"],
+      "highlightEdgeIds": ["edge_profile_risk", "edge_plan_low_risk"],
+      "evidenceIds": ["ev_005", "ev_012"],
+      "dataSource": "demo_seed"
+    },
+    {
+      "scenarioType": "liquidity_decline",
+      "title": "流动性下降",
+      "summary": "成交活跃度下降时，流动性风险和溢价折价理解需要加强。",
+      "affectedObjects": ["流动性指标", "流动性风险", "宽基 ETF"],
+      "affectedPath": ["市场成交事件", "流动性指标", "流动性风险", "方案解释"],
+      "riskChanges": [{ "name": "流动性风险", "before": 42, "after": 70 }, { "name": "信息滞后", "before": 30, "after": 46 }, { "name": "波动风险", "before": 44, "after": 52 }],
+      "planImpact": "所有方案均需增加流动性风险教育说明。",
+      "reEvaluateReason": "用户应理解成交活跃度、价格偏离和交易成本之间的关系。",
+      "highlightNodeIds": ["news_liquidity_down", "metric_liquidity", "risk_liquidity"],
+      "highlightEdgeIds": ["edge_news_liq_metric", "edge_metric_liq_risk"],
+      "evidenceIds": ["ev_005", "ev_008"],
+      "dataSource": "demo_seed"
+    },
+    {
+      "scenarioType": "news_event",
+      "title": "新闻负面事件增加",
+      "summary": "负面事件增加会使风险信号节点更活跃，方案解释更偏向风险教育。",
+      "affectedObjects": ["新闻事件", "风险信号", "证据对象"],
+      "affectedPath": ["新闻事件", "风险信号", "证据链", "投教方案"],
+      "riskChanges": [{ "name": "新闻敏感", "before": 34, "after": 66 }, { "name": "主题风险", "before": 52, "after": 69 }, { "name": "证据需求", "before": 58, "after": 78 }],
+      "planImpact": "方案卡片应优先展示证据和风险来源。",
+      "reEvaluateReason": "用户需要区分新闻事件、短期波动和长期学习目标。",
+      "highlightNodeIds": ["news_tech_volatility", "risk_volatility", "evidence_rule_risk"],
+      "highlightEdgeIds": ["edge_news_tech_sector", "edge_risk_ev"],
+      "evidenceIds": ["ev_006", "ev_005"],
+      "dataSource": "demo_seed"
+    },
+    {
+      "scenarioType": "policy_event",
+      "title": "政策变化",
+      "summary": "政策变化可能影响行业主题解释路径，需关注证据来源和适用范围。",
+      "affectedObjects": ["政策事件", "行业主题", "证据对象"],
+      "affectedPath": ["政策事件", "行业主题", "风险信号", "方案解释"],
+      "riskChanges": [{ "name": "政策敏感", "before": 30, "after": 58 }, { "name": "行业集中", "before": 36, "after": 54 }, { "name": "证据需求", "before": 52, "after": 72 }],
+      "planImpact": "相关主题解释需要绑定政策证据，避免凭空推断。",
+      "reEvaluateReason": "用户应检查政策事件与具体 ETF 主题暴露是否真正相关。",
+      "highlightNodeIds": ["theme_dividend", "evidence_rule_risk", "source_demo_seed"],
+      "highlightEdgeIds": ["edge_evidence_source_2", "edge_dividend_theme"],
+      "evidenceIds": ["ev_008", "ev_012"],
+      "dataSource": "demo_seed"
+    }
+  ],
+  "actionLogs": [
+    { "id": "action_001", "actionType": "parse_profile", "title": "生成用户画像", "targetObject": "profile_demo_001", "status": "completed", "createdAt": "2026-06-12T00:00:00.000Z", "sourceSystem": "etf_app", "dataSource": "demo_seed" },
+    { "id": "action_002", "actionType": "build_semantic_graph", "title": "构建语义画布", "targetObject": "semantic_graph_demo", "status": "completed", "createdAt": "2026-06-12T00:00:00.000Z", "sourceSystem": "semantic_world", "dataSource": "demo_seed" },
+    { "id": "action_003", "actionType": "bind_evidence", "title": "绑定证据链", "targetObject": "plan_demo_001", "status": "completed", "createdAt": "2026-06-12T00:00:00.000Z", "sourceSystem": "knowledge_hub", "dataSource": "demo_seed" },
+    { "id": "action_004", "actionType": "prepare_demo_plan", "title": "准备演示投教方案", "targetObject": "strategy_plans", "status": "completed", "createdAt": "2026-06-12T00:00:00.000Z", "sourceSystem": "my_blueprint", "dataSource": "demo_seed" },
+    { "id": "action_005", "actionType": "scenario_simulation", "title": "场景推演预载", "targetObject": "scenario_results", "status": "completed", "createdAt": "2026-06-12T00:00:00.000Z", "sourceSystem": "semantic_world", "dataSource": "demo_seed" }
+  ]
+}
