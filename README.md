@@ -122,8 +122,6 @@ pnpm --filter web build
 - `ecosystem.config.cjs` — PM2 配置
 - `nginx/etf-swm-agent.conf` — Nginx 示例
 - `scripts/deploy.sh` — 服务器端一键部署脚本
-- `docs/无容器部署说明.md` — 详细部署步骤
-- `docs/开发文档/` — 产品与架构设计文档
 
 生产构建时务必设置 `VITE_API_BASE_URL=/api`，否则前端会错误请求 `127.0.0.1:8000`。
 
@@ -152,7 +150,6 @@ apps/
   web/          React + Vite 前端
 data/
   demoSeed.json 演示种子数据
-docs/           产品与部署文档
 nginx/          Nginx 配置示例
 scripts/        部署脚本
 ```
